@@ -1,15 +1,15 @@
 {
-  "name": "electron-boilerplate",
-  "productName": "Electron Boilerplate",
-  "description": "Starter for your Electron application",
-  "version": "0.0.0",
+  "name": "consort",
+  "productName": "Consort",
+  "description": "Development Environment for SmallScript",
+  "version": "0.1.0",
   "private": true,
-  "author": "Mr. Gumby <mr.gumby@example.com>",
-  "copyright": "© 2017, Gumby inc.",
-  "homepage": "http://example.com",
+  "author": "Theta Nil <thetanil@thetanil.com>",
+  "copyright": "© 2022, Theta Nil",
+  "homepage": "http://thetanil.com",
   "main": "app/main.js",
   "build": {
-    "appId": "com.example.electron-boilerplate",
+    "appId": "com.thetanil.consort",
     "files": [
       "app/**/*",
       "node_modules/**/*",
