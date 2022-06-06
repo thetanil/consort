@@ -1,5 +1,15 @@
-*.swp
-build
 node_modules
-dist
-npm-debug.log
+.DS_Store
+Thumbs.db
+*.log
+
+/dist
+/temp
+
+# ignore everything in 'app' folder what had been generated from 'src' folder
+/app/app.js
+/app/main.js
+/app/**/*.map
+
+# ignore sqlite testdb
+database.db
