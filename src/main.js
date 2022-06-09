@@ -32,6 +32,15 @@ import { open } from 'sqlite'
 
 })()
 
+// https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API
+import * as ts from "typescript";
+
+const source = "let x: string  = 1";
+
+let result = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS } });
+
+console.log(JSON.stringify(result));
+
 // Save userData in separate folders for each environment.
 // Thanks to this you can use production and development versions of the app
 // on same machine like those are two separate apps.
@@ -65,6 +74,7 @@ app.on("ready", () => {
   const mainWindow = createWindow("main", {
     width: 1000,
     height: 600,
+    fullscreenable: true,
     webPreferences: {
       // Two properties below are here for demo purposes, and are
       // security hazard. Make sure you know what you're doing
@@ -79,13 +89,14 @@ app.on("ready", () => {
   mainWindow.loadURL(
     url.format({
       // pathname: path.join(__dirname, "app.html"),
-      pathname: path.join(__dirname, "reveal/index.html"),
+      pathname: path.join(__dirname, "reveal/demo.html"),
       protocol: "file:",
       slashes: true
     })
   );
 
   if (env.name === "development") {
+    // mainWindow.setFullScreen(true);
     mainWindow.openDevTools();
   }
 });

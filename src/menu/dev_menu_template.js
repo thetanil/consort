@@ -16,6 +16,14 @@ export default {
       click: () => {
         BrowserWindow.getFocusedWindow().toggleDevTools();
       }
+    },
+    {
+      label: "Toggle FullScreen",
+      accelerator: "F11",
+      click: () => {
+        BrowserWindow.getFocusedWindow()
+          .setFullScreen(!BrowserWindow.getFocusedWindow().isFullScreen());
+      }
     }
   ]
 };
