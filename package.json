@@ -4,7 +4,7 @@
   "description": "Development Environment for SmallScript",
   "main": "app/main.js",
   "scripts": {
-    "start": "electronmon .",
+    "start": "taskkill /IM electron.exe & electronmon .",
     "test": "electron-mocha",
     "release": "npm test && electron-builder",
     "postinstall": "electron-builder install-app-deps"
@@ -33,7 +33,9 @@
     "electronmon": "^2.0.2"
   },
   "dependencies": {
+    "chai": "^4.3.6",
     "dotenv": "^16.0.1",
+    "mocha": "^10.0.0",
     "monaco-editor": "^0.33.0",
     "sqlite": "^4.1.1",
     "sqlite3": "^5.0.8",

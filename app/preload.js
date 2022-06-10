@@ -1,4 +1,15 @@
+const { contextBridge, ipcRenderer } = require('electron')
 
+contextBridge.exposeInMainWorld(
+    'api',
+    {
+        doThing: (d) => ipcRenderer.invoke('doThing', d),
+        selectFolder: (e) => ipcRenderer.invoke('selectFolder', e),
+        openFile: (p) => ipcRenderer.invoke('openFile', p),
+        testSend: (msg) => ipcRenderer.send(msg),
+        testInvoke: (msg) => ipcRenderer.invoke(msg)
+    }
+)
 
 window.addEventListener('DOMContentLoaded', () => {
     const replaceText = (selector, text) => {
@@ -10,3 +21,4 @@ window.addEventListener('DOMContentLoaded', () => {
         replaceText(`${dependency}-version`, process.versions[dependency])
     }
 })
+
