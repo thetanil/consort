@@ -3,7 +3,7 @@ const { contextBridge, ipcRenderer } = require('electron')
 contextBridge.exposeInMainWorld(
     'api',
     {
-        doThing: (d) => ipcRenderer.invoke('doThing', d),
+        doThing: (msg) => ipcRenderer.invoke('doThing', msg),
         selectFolder: (e) => ipcRenderer.invoke('selectFolder', e),
         openFile: (p) => ipcRenderer.invoke('openFile', p),
         testSend: (msg) => ipcRenderer.send(msg),

@@ -28,7 +28,7 @@ const createWindow = () => {
 
     if (env.CONSORT_ENV === 'development') {
         win.loadFile(path.join('app', 'mocha.html'))
-        win.openDevTools();
+        // win.openDevTools();
         // console.log(env)
     } else {
         win.loadFile(path.join('app', 'index.html'))
