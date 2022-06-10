@@ -1,9 +1,19 @@
 const path = require('path')
-const { app, BrowserWindow, ipcMain } = require('electron')
 const { env } = require('process')
+require('dotenv').config()
+const electron = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
+
 
 const createWindow = () => {
+    let displays = electron.screen.getAllDisplays()
+    let externalDisplay = displays.find((display) => {
+        return display.bounds.x !== 0 || display.bounds.y !== 0
+    })
+
     const win = new BrowserWindow({
+        x: externalDisplay.bounds.x + 50,
+        y: externalDisplay.bounds.y + 50,
         width: 800,
         height: 600,
         webPreferences: {
@@ -15,8 +25,8 @@ const createWindow = () => {
     })
 
     win.loadFile('app/index.html')
-    win.openDevTools();
-    if (env.name === 'development') {
+    // console.log(env)
+    if (env.CONSORT_ENV === 'development') {
         win.openDevTools();
     }
 }
