@@ -4,9 +4,12 @@
   "description": "Development Environment for SmallScript",
   "main": "app/main.js",
   "scripts": {
-    "start": "taskkill /IM electron.exe & electronmon .",
-    "test": "electron-mocha",
-    "release": "npm test && electron-builder",
+    "z-dev": "nodemon --exec ts-node ./src/index.ts  --watch src --ext .ts",
+    "build": "tsc",
+    "build-live": "tsc -w",
+    "start": "taskkill /IM electron.exe 2>nul & start /B npm run build-live & electronmon .",
+    "test": "",
+    "release": "npm run build && npm test && electron-builder",
     "postinstall": "electron-builder install-app-deps"
   },
   "build": {
@@ -33,12 +36,16 @@
     "electronmon": "^2.0.2"
   },
   "dependencies": {
+    "@types/node": "^17.0.42",
     "chai": "^4.3.6",
     "dotenv": "^16.0.1",
     "mocha": "^10.0.0",
     "monaco-editor": "^0.33.0",
+    "nodemon": "^2.0.16",
+    "reveal.js": "^4.3.1",
     "sqlite": "^4.1.1",
     "sqlite3": "^5.0.8",
+    "ts-node": "^10.8.1",
     "typescript": "^4.7.3"
   }
 }

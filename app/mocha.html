@@ -11,6 +11,7 @@
 
     <body>
         <div id="mocha"></div>
+        <div id="test"></div>
 
         <!-- <script src="node_modules/chai/chai.js"></script> -->
         <script src="../node_modules/mocha/mocha.js"></script>
@@ -23,8 +24,12 @@
                 asyncOnly: true,
             });
         </script>
-        <script src="test/test.js"></script>
+        <!-- <script src="test/test.js"></script>
         <script src="test/test.context.bridge.js"></script>
+        <script src="test/test.mvc.js"></script>
+        <script src="test/test.events.js"></script> -->
+        <script src="test/test.api.sqlite.js"></script>
+        <script src="test/test.models.js"></script>
         <script class="mocha-exec">
             assert = chai.assert
             mocha.run();

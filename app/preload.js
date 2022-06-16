@@ -3,13 +3,14 @@ const { contextBridge, ipcRenderer } = require('electron')
 contextBridge.exposeInMainWorld(
     'api',
     {
-        doThing: (msg) => ipcRenderer.invoke('doThing', msg),
-        selectFolder: (e) => ipcRenderer.invoke('selectFolder', e),
-        openFile: (p) => ipcRenderer.invoke('openFile', p),
-        testSend: (msg) => ipcRenderer.send(msg),
-        testInvoke: (msg) => ipcRenderer.invoke(msg)
+        // send: (channel, msg) => ipcRenderer.send(channel, msg),
+        send: (channel, msg) => ipcRenderer.invoke(channel, msg)
     }
 )
+
+ipcRenderer.on('replace', (e, msg) => {
+    document.getElementById(msg.selector).innerHTML = msg.html
+})
 
 window.addEventListener('DOMContentLoaded', () => {
     const replaceText = (selector, text) => {
