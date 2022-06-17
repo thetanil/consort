@@ -118,3 +118,4 @@ let services = {
 };
 exports.services = services;
 // export default new Calculator();
+//# sourceMappingURL=calculator.js.map
