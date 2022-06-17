@@ -1,0 +1,28 @@
+{
+  "name": "consort",
+  "version": "1.0.0",
+  "description": "SmallScript Runtime",
+  "config": {
+    "redbean": "redbean-2.0.1.com"
+  },
+  "scripts": {
+    "start": ".bin/redbean-2.0.1.com -vvmbag",
+    "repl": ".bin/redbean-2.0.1.com -i",
+    "zip": "cd zip && ../.bin/zip.exe -r ../.bin/redbean-2.0.1.com *",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thetanil/consort.git"
+  },
+  "keywords": [
+    "lua",
+    "smallscript"
+  ],
+  "author": "Theta Nil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thetanil/consort/issues"
+  },
+  "homepage": "https://github.com/thetanil/consort#readme"
+}
